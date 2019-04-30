@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

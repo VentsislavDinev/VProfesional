@@ -26,8 +26,8 @@ namespace WiLSoft.Infrastructure.Core.Configuration
         private static IConfigurationRoot BuildConfiguration(string path, string environmentName = null, bool addUserSecrets = false)
         {
             var builder = new ConfigurationBuilder()
-                
-                .SetBasePath(path)
+               
+              .SetBasePath(path)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             if (!environmentName.IsNullOrWhiteSpace())

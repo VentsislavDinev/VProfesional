@@ -5,6 +5,8 @@ using Abp.Domain.Uow;
 using Abp.Organizations;
 using Abp.Runtime.Caching;
 using Abp.Zero.Configuration;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,20 +18,27 @@ namespace WiLSoft.Infrastructure.Core.Authorization.Roles
     {
         public RoleManager(
             RoleStore store,
+            IEnumerable<IRoleValidator<Role>> roleValidators,
+            ILookupNormalizer keyNormalizer,
+            IdentityErrorDescriber errors,
+            ILogger<AbpRoleManager<Role, User>> logger,
             IPermissionManager permissionManager,
-            IRoleManagementConfig roleManagementConfig,
             ICacheManager cacheManager,
             IUnitOfWorkManager unitOfWorkManager,
-            IRepository<OrganizationUnit, long> organizationUnit,
-            IRepository<OrganizationUnitRole, long> organizationUnitRole)
+            IRoleManagementConfig roleManagementConfig,
+            IRepository<OrganizationUnit, long> userOrganizationUnit,
+            IRepository<OrganizationUnitRole, long> OrganizationUnitRole)
             : base(
                 store,
+                roleValidators,
+                keyNormalizer,
+                errors, logger,
                 permissionManager,
-                roleManagementConfig,
                 cacheManager,
                 unitOfWorkManager,
-                organizationUnit,
-                organizationUnitRole)
+                roleManagementConfig,
+                userOrganizationUnit,
+                OrganizationUnitRole)
         {
         }
     }

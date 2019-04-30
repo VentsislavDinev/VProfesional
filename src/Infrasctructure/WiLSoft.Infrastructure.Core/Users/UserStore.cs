@@ -1,33 +1,38 @@
 ﻿using Abp.Authorization.Users;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
+using Abp.Linq;
 using Abp.Organizations;
 using WiLSoft.Infrastructure.Core.Authorization.Roles;
 
 namespace WiLSoft.Infrastructure.Core.Users
 {
+
+
     public class UserStore : AbpUserStore<Role, User>
     {
         public UserStore(
-            IRepository<User, long> userRepository,
-            IRepository<UserLogin, long> userLoginRepository,
-            IRepository<UserRole, long> userRoleRepository,
-            IRepository<Role> roleRepository,
-            IRepository<UserPermissionSetting, long> userPermissionSettingRepository,
             IUnitOfWorkManager unitOfWorkManager,
-            IRepository<UserClaim, long> userClaimStore,
-            IRepository<UserOrganizationUnit, long> organizationUnit,
-            IRepository<OrganizationUnitRole, long> organizationUnitRole)
+            IRepository<User, long> userRepository,
+            IRepository<Role> roleRepository,
+            IAsyncQueryableExecuter asyncQueryableExecuter,
+            IRepository<UserRole, long> userRoleRepository,
+            IRepository<UserLogin, long> userLoginRepository,
+            IRepository<UserClaim, long> userClaimRepository,
+            IRepository<UserPermissionSetting, long> userPermissionSettingRepository,
+            IRepository<UserOrganizationUnit,long> userOrganizationUnit, 
+            IRepository<OrganizationUnitRole, long> OrganizationUnitRole)
             : base(
-              userRepository,
-              userLoginRepository,
-              userRoleRepository,
-              roleRepository,
-              userPermissionSettingRepository,
-              unitOfWorkManager,
-              userClaimStore,
-              organizationUnit,
-              organizationUnitRole)
+                  unitOfWorkManager,
+                  userRepository,
+                  roleRepository,
+                  asyncQueryableExecuter,
+                  userRoleRepository,
+                  userLoginRepository,
+                  userClaimRepository,
+                  userPermissionSettingRepository,
+                  userOrganizationUnit,
+                  OrganizationUnitRole)
         {
         }
     }

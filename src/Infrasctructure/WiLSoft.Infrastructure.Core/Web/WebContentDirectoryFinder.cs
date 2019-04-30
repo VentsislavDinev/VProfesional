@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.Reflection.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,11 +18,11 @@ namespace WiLSoft.Infrastructure.Core.Web
             var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(WiLSoftCoreModule).GetAssembly().Location);
             if (coreAssemblyDirectoryPath == null)
             {
-                throw new Exception("Could not find location of IdentityServerDemo.Core assembly!");
+                throw new Exception("Could not find location of WiLSoft.Store.Core assembly!");
             }
 
             var directoryInfo = new DirectoryInfo(coreAssemblyDirectoryPath);
-            while (!DirectoryContains(directoryInfo.FullName, "IdentityServerDemo.sln"))
+            while (!DirectoryContains(directoryInfo.FullName, "WiLSoft.Store.sln"))
             {
                 if (directoryInfo.Parent == null)
                 {
@@ -31,19 +32,18 @@ namespace WiLSoft.Infrastructure.Core.Web
                 directoryInfo = directoryInfo.Parent;
             }
 
-            var webMvcFolder = Path.Combine(directoryInfo.FullName, "src", "IdentityServerDemo.Web.Mvc");
+            var webMvcFolder = Path.Combine(directoryInfo.FullName, "WiLSoft.Authentatiocation");
             if (Directory.Exists(webMvcFolder))
             {
                 return webMvcFolder;
             }
 
-            var webHostFolder = Path.Combine(directoryInfo.FullName, "src", "IdentityServerDemo.Web.Host");
+            var webHostFolder = Path.Combine(directoryInfo.FullName, "WiLSoft.Store.Web.Administration");
             if (Directory.Exists(webHostFolder))
             {
                 return webHostFolder;
             }
-
-            throw new Exception("Could not find root folder of the web project!");
+            return coreAssemblyDirectoryPath;
         }
 
         private static bool DirectoryContains(string directory, string fileName)

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WiLSoft.Authentatiocation.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using WiLSoft.Infrastructure.Core.Users;
 //using Abp.ZeroCore.IdentityServer4;
 using Abp.IdentityServer4;
@@ -35,8 +36,8 @@ namespace WiLSoft.Authentatiocation
                 .AddInMemoryIdentityResources(IdentityServerConfig.GetIdentityResources())
                 .AddInMemoryApiResources(IdentityServerConfig.GetApiResources())
                 .AddInMemoryClients(IdentityServerConfig.GetClients())
-                .AddAbpPersistedGrants<AuthDbContext>();
-                //.AddAbpIdentityServer<User>();
+                .AddAbpPersistedGrants<AuthDbContext>()
+                .AddAbpIdentityServer<User>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -53,7 +54,7 @@ namespace WiLSoft.Authentatiocation
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            //app.UseJwtTokenMiddleware("IdentityBearer");
+           
             app.UseIdentityServer();
             app.UseHttpsRedirection();
             app.UseMvc();

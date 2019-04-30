@@ -3,6 +3,7 @@ using Abp.IdentityServer4;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Zero.EntityFrameworkCore;
+using WiLSoft.Authentatiocation.Models.Seed;
 using WiLSoft.Infrastructure.Core;
 
 namespace WiLSoft.Authentatiocation.Models

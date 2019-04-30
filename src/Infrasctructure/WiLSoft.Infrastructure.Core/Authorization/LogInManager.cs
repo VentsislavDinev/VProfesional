@@ -6,6 +6,7 @@ using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.Zero.Configuration;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,8 +25,11 @@ namespace WiLSoft.Infrastructure.Core.Authorization
             IUnitOfWorkManager unitOfWorkManager,
             ISettingManager settingManager,
             IRepository<UserLoginAttempt, long> userLoginAttemptRepository,
-            IUserManagementConfig userManagementConfig, IIocResolver iocResolver,
-            RoleManager roleManager)
+            IUserManagementConfig userManagementConfig,
+            IIocResolver iocResolver,
+            IPasswordHasher<User> passwordHasher,
+            RoleManager roleManager,
+            UserClaimsPrincipalFactory claimsPrincipalFactory)
             : base(
                   userManager,
                   multiTenancyConfig,
@@ -35,7 +39,9 @@ namespace WiLSoft.Infrastructure.Core.Authorization
                   userLoginAttemptRepository,
                   userManagementConfig,
                   iocResolver,
-                  roleManager)
+                  passwordHasher,
+                  roleManager,
+                  claimsPrincipalFactory)
         {
         }
     }

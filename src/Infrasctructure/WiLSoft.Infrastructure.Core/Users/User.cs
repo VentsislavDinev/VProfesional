@@ -16,7 +16,7 @@ namespace WiLSoft.Infrastructure.Core.Users
             return Guid.NewGuid().ToString("N").Truncate(16);
         }
 
-        public static User CreateTenantAdminUser(int tenantId, string emailAddress, string password)
+        public static User CreateTenantAdminUser(int tenantId, string emailAddress)
         {
 
             var user = new User
@@ -26,7 +26,7 @@ namespace WiLSoft.Infrastructure.Core.Users
                 Name = AdminUserName,
                 Surname = AdminUserName,
                 EmailAddress = emailAddress,
-                Password = new PasswordHasher().HashPassword(password)
+  
             };
 
 
