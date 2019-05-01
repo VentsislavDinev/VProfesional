@@ -20,6 +20,8 @@ using WiLSoft.Infrastructure.Core.Users;
 using WiLSoft.WebModule.Core.Authentication.External;
 using WiLSoft.WebModule.Core.Authentication.JwtBearer;
 using WiLSoft.WebModule.Core.Models.TokenAuth;
+using WiLSoft.Infrasctructure.Application.Authorization;
+using WiLSoft.Infrasctructure.Application;
 
 namespace WiLSoft.WebModule.Core.Controllers
 {
@@ -142,7 +144,7 @@ namespace WiLSoft.WebModule.Core.Controllers
                 externalUser.Surname,
                 externalUser.EmailAddress,
                 externalUser.EmailAddress,
-                Authorization.Users.User.CreateRandomPassword(),
+                WiLSoft.Infrastructure.Core.Users.User.CreateRandomPassword(),
                 true
             );
 

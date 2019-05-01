@@ -19,9 +19,7 @@ namespace WiLSoft.Infrastructure.Core.Users
             IRepository<UserRole, long> userRoleRepository,
             IRepository<UserLogin, long> userLoginRepository,
             IRepository<UserClaim, long> userClaimRepository,
-            IRepository<UserPermissionSetting, long> userPermissionSettingRepository,
-            IRepository<UserOrganizationUnit,long> userOrganizationUnit, 
-            IRepository<OrganizationUnitRole, long> OrganizationUnitRole)
+            IRepository<UserPermissionSetting, long> userPermissionSettingRepository)
             : base(
                   unitOfWorkManager,
                   userRepository,
@@ -30,9 +28,7 @@ namespace WiLSoft.Infrastructure.Core.Users
                   userRoleRepository,
                   userLoginRepository,
                   userClaimRepository,
-                  userPermissionSettingRepository,
-                  userOrganizationUnit,
-                  OrganizationUnitRole)
+                  userPermissionSettingRepository)
         {
         }
     }

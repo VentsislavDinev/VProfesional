@@ -12,6 +12,8 @@ using Abp.Zero.Configuration;
 using Abp.AspNetCore.Configuration;
 using Abp.Reflection.Extensions;
 using WiLSoft.WebModule.Core.Authentication.JwtBearer;
+using WiLSoft.WebModule.Core.Configuration;
+using WiLSoft.Infrasctructure.Application;
 
 namespace WiLSoft.WebModule.Core
 {
@@ -44,7 +46,7 @@ namespace WiLSoft.WebModule.Core
 
             Configuration.Modules.AbpAspNetCore()
                  .CreateControllersForAppServices(
-                     typeof(IdentityServerDemoApplicationModule).GetAssembly()
+                     typeof(WiLSoftApplicationModule).GetAssembly()
                  );
 
             ConfigureTokenAuth();

@@ -25,9 +25,7 @@ namespace WiLSoft.Infrastructure.Core.Authorization.Roles
             IPermissionManager permissionManager,
             ICacheManager cacheManager,
             IUnitOfWorkManager unitOfWorkManager,
-            IRoleManagementConfig roleManagementConfig,
-            IRepository<OrganizationUnit, long> userOrganizationUnit,
-            IRepository<OrganizationUnitRole, long> OrganizationUnitRole)
+            IRoleManagementConfig roleManagementConfig)
             : base(
                 store,
                 roleValidators,
@@ -36,9 +34,7 @@ namespace WiLSoft.Infrastructure.Core.Authorization.Roles
                 permissionManager,
                 cacheManager,
                 unitOfWorkManager,
-                roleManagementConfig,
-                userOrganizationUnit,
-                OrganizationUnitRole)
+                roleManagementConfig)
         {
         }
     }

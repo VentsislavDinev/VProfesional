@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrasctructure\WiLSoft.Infrasctructure.Application\WiLSoft.Infrasctructure.Application.csproj" />
     <ProjectReference Include="..\..\Infrasctructure\WiLSoft.Infrastructure.Core\WiLSoft.Infrastructure.Core.csproj" />
   </ItemGroup>
 

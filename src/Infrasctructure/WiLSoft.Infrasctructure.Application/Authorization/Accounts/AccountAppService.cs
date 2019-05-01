@@ -47,7 +47,7 @@ namespace WiLSoft.Infrasctructure.Application.Authorization.Accounts
                 false
             );
 
-            var isEmailConfirmationRequiredForLogin = await SettingManager.GetSettingValueAsync("");
+            var isEmailConfirmationRequiredForLogin = await SettingManager.GetSettingValueAsync<bool>(AbpZeroSettingNames.UserManagement.IsEmailConfirmationRequiredForLogin);
 
             return new RegisterOutput
             {

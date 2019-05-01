@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using WiLSoft.Infrastructure.Core.Users;
+using WiLSoft.Infrastructure.Core.Validation;
 
 namespace WiLSoft.Infrasctructure.Application.Authorization.Accounts.Dto
 {
